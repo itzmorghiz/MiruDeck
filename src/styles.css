@@ -34,6 +34,7 @@ body {
 		Helvetica,
 		Arial,
 		sans-serif !important;
+	background-color: rgb(var(--mdui-color-background-dark));
 }
 
 .hidden,
@@ -50,6 +51,7 @@ mdui-layout-main {
 	width: 100%;
 	overflow: hidden;
 	-webkit-overflow-scrolling: touch;
+	background-color: transparent !important;
 }
 
 mdui-layout-main:not([nopad]) {

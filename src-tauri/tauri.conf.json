@@ -39,8 +39,8 @@
 			"mobile": [
 				{
 					"scheme": ["https"],
-					"host": "yourwebsite.com",
-					"pathPrefix": ["/reader-page", "/open/"],
+					"host": "mirudeck.itzmorghiz.workers.dev",
+					"pathPrefix": ["/"],
 					"appLink": true
 				}
 			],
