@@ -15,7 +15,6 @@
 	text-rendering: optimizeLegibility;
 	font-smooth: always;
 	user-select: none;
-	--native-dark-bg-color: rgb(var(--mdui-color-background-dark)) !important;
 }
 
 html,
@@ -51,7 +50,7 @@ mdui-layout-main {
 	width: 100%;
 	overflow: hidden;
 	-webkit-overflow-scrolling: touch;
-	background-color: transparent !important;
+	background-color: rgb(var(--mdui-color-background-dark));
 }
 
 mdui-layout-main:not([nopad]) {

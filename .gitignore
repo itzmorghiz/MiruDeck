@@ -34,4 +34,4 @@ src-tauri/gen/
 .env*
 !.env.example
 
-public/extensions/
+/public/extensions
