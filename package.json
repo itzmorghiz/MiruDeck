@@ -1,0 +1,35 @@
+{
+	"name": "mirudeck",
+	"private": true,
+	"version": "0.1.0",
+	"type": "module",
+	"scripts": {
+		"dev": "vite",
+		"build": "tsc && vite build",
+		"build:extensions": "tsx scripts/build-extensions.ts",
+		"build:all": "npm run build && npm run build:extensions",
+		"preview": "vite preview",
+		"tauri": "tauri"
+	},
+	"dependencies": {
+		"@mdui/icons": "^1.0.4",
+		"@tauri-apps/api": "^2",
+		"@tauri-apps/plugin-deep-link": "^2.6.3",
+		"@tauri-apps/plugin-http": "^2.8.3",
+		"@tauri-apps/plugin-opener": "^2",
+		"cheerio": "^1.2.0",
+		"jszip": "^3.10.2",
+		"material-symbols": "^0.48.2",
+		"mdui": "^2.1.5",
+		"ufo": "^1.6.4"
+	},
+	"devDependencies": {
+		"@tauri-apps/cli": "^2",
+		"@types/node": "^26.6.6",
+		"esbuild": "^0.28.2",
+		"tsx": "^4.23.15",
+		"typescript": "~6.0.3",
+		"vite": "^8.0.16",
+		"vite-plugin-remote-assets": "^2.1.0"
+	}
+}

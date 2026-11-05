@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en" class="mdui-theme-auto">
+	<head>
+		<meta charset="UTF-8" />
+		<link href="/node_modules/mdui/mdui.css" rel="stylesheet" />
+		<link rel="stylesheet" href="/src/styles.css" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>MiruDeck</title>
+		<script type="module" src="/src/main.ts" defer></script>
+	</head>
+	<body id="body">
+		<!--main page-->
+		<mdui-layout-main class="page" id="main" nopad>
+			<!--home page-->
+			<mdui-layout-main class="page" id="home" nopad>
+				<mdui-top-app-bar
+					scroll-behavior="elevate"
+					scroll-target="#home-content"
+					top
+				>
+					<mdui-top-app-bar-title>Home</mdui-top-app-bar-title>
+				</mdui-top-app-bar>
+
+				<mdui-layout-main id="home-content" scroll>
+					<h1 style="text-align: center; margin: auto">HOME CONTENT</h1>
+					<h1 style="text-align: center; margin: auto">HOME CONTENT</h1>
+					<h1 style="text-align: center; margin: auto">HOME CONTENT</h1>
+					<h1 style="text-align: center; margin: auto">HOME CONTENT</h1>
+					<h1 style="text-align: center; margin: auto">HOME CONTENT</h1>
+					<h1 style="text-align: center; margin: auto">HOME CONTENT</h1>
+					<h1 style="text-align: center; margin: auto">HOME CONTENT</h1>
+					<h1 style="text-align: center; margin: auto">HOME CONTENT</h1>
+					<h1 style="text-align: center; margin: auto">HOME CONTENT</h1>
+					<h1 style="text-align: center; margin: auto">HOME CONTENT</h1>
+					<h1 style="text-align: center; margin: auto">HOME CONTENT</h1>
+					<h1 style="text-align: center; margin: auto">HOME CONTENT</h1>
+					<h1 style="text-align: center; margin: auto">HOME CONTENT</h1>
+					<h1 style="text-align: center; margin: auto">HOME CONTENT</h1>
+					<h1 style="text-align: center; margin: auto">HOME CONTENT</h1>
+					<h1 style="text-align: center; margin: auto">HOME CONTENT</h1>
+					<h1 style="text-align: center; margin: auto">HOME CONTENT</h1>
+					<h1 style="text-align: center; margin: auto">HOME CONTENT</h1>
+					<h1 style="text-align: center; margin: auto">HOME CONTENT</h1>
+					<h1 style="text-align: center; margin: auto">HOME CONTENT</h1>
+					<h1 style="text-align: center; margin: auto">HOME CONTENT</h1>
+					<h1 style="text-align: center; margin: auto">HOME CONTENT</h1>
+					<h1 style="text-align: center; margin: auto">HOME CONTENT</h1>
+					<h1 style="text-align: center; margin: auto">HOME CONTENT</h1>
+					<h1 style="text-align: center; margin: auto">HOME CONTENT</h1>
+					<h1 style="text-align: center; margin: auto">HOME CONTENT</h1>
+					<h1 style="text-align: center; margin: auto">HOME CONTENT</h1>
+					<h1 style="text-align: center; margin: auto">HOME CONTENT</h1>
+					<h1 style="text-align: center; margin: auto">HOME CONTENT</h1>
+					<h1 style="text-align: center; margin: auto">HOME CONTENT</h1>
+					<h1 style="text-align: center; margin: auto">HOME CONTENT</h1>
+					<h1 style="text-align: center; margin: auto">HOME CONTENT</h1>
+					<h1 style="text-align: center; margin: auto">HOME CONTENT</h1>
+					<h1 style="text-align: center; margin: auto">HOME CONTENT</h1>
+					<h1 style="text-align: center; margin: auto">HOME CONTENT</h1>
+					<h1 style="text-align: center; margin: auto">HOME CONTENT</h1>
+					<h1 style="text-align: center; margin: auto">HOME CONTENT</h1>
+					<h1 style="text-align: center; margin: auto">HOME CONTENT</h1>
+					<h1 style="text-align: center; margin: auto">HOME CONTENT</h1>
+					<h1 style="text-align: center; margin: auto">HOME CONTENT</h1>
+				</mdui-layout-main>
+			</mdui-layout-main>
+
+			<!--search page-->
+			<mdui-layout-main class="page" id="search" nopad>
+				<!--top bar-->
+				<mdui-top-app-bar top scroll-target="#search-page">
+					<form action="" id="search-form">
+						<mdui-text-field
+							placeholder="Search"
+							name="query"
+							type="search"
+							id="search-bar"
+						>
+							<mdui-icon slot="icon" name="search"></mdui-icon>
+						</mdui-text-field>
+					</form>
+					<mdui-button-icon icon="more_vert"></mdui-button-icon>
+				</mdui-top-app-bar>
+
+				<mdui-layout-main scroll>
+					<div id="search-results"></div>
+				</mdui-layout-main>
+			</mdui-layout-main>
+
+			<!--settings page-->
+			<mdui-layout-main class="page" id="settings" nopad>
+				<!--top bar-->
+				<mdui-top-app-bar
+					top
+					scroll-behavior="elevate"
+					scroll-target="#settings-content"
+				>
+					<mdui-top-app-bar-title>Settings</mdui-top-app-bar-title>
+					<mdui-button-icon icon="more_vert"></mdui-button-icon>
+				</mdui-top-app-bar>
+
+				<mdui-layout-main id="settings-content" scroll>
+					<div class="settings-group">
+						<div class="settings-group-name">Category name</div>
+						<mdui-card class="settings-entry">
+							<p class="setting-name">Test setting</p>
+							<mdui-switch></mdui-switch>
+						</mdui-card>
+						<mdui-card class="settings-entry">
+							<p class="setting-name">Test setting</p>
+							<mdui-switch></mdui-switch>
+						</mdui-card>
+						<mdui-card class="settings-entry">
+							<p class="setting-name">Test setting</p>
+							<mdui-switch></mdui-switch>
+						</mdui-card>
+					</div>
+					<div class="settings-group">
+						<div class="settings-group-name">Category name</div>
+						<mdui-card class="settings-entry">
+							<p class="setting-name">Test setting</p>
+							<mdui-switch></mdui-switch>
+						</mdui-card>
+						<mdui-card class="settings-entry">
+							<p class="setting-name">Test setting</p>
+							<mdui-switch></mdui-switch>
+						</mdui-card>
+						<mdui-card class="settings-entry">
+							<p class="setting-name">Test setting</p>
+							<mdui-switch></mdui-switch>
+						</mdui-card>
+					</div>
+					<div class="settings-group">
+						<div class="settings-group-name">Category name</div>
+						<mdui-card class="settings-entry">
+							<p class="setting-name">Test setting</p>
+							<mdui-switch></mdui-switch>
+						</mdui-card>
+						<mdui-card class="settings-entry">
+							<p class="setting-name">Test setting</p>
+							<mdui-switch></mdui-switch>
+						</mdui-card>
+						<mdui-card class="settings-entry">
+							<p class="setting-name">Test setting</p>
+							<mdui-switch></mdui-switch>
+						</mdui-card>
+					</div>
+					<div class="settings-group">
+						<div class="settings-group-name">Category name</div>
+						<mdui-card class="settings-entry">
+							<p class="setting-name">Test setting</p>
+							<mdui-switch></mdui-switch>
+						</mdui-card>
+						<mdui-card class="settings-entry">
+							<p class="setting-name">Test setting</p>
+							<mdui-switch></mdui-switch>
+						</mdui-card>
+						<mdui-card class="settings-entry">
+							<p class="setting-name">Test setting</p>
+							<mdui-switch></mdui-switch>
+						</mdui-card>
+					</div>
+					<div class="settings-group">
+						<div class="settings-group-name">Category name</div>
+						<mdui-card class="settings-entry">
+							<p class="setting-name">Test setting</p>
+							<mdui-switch></mdui-switch>
+						</mdui-card>
+						<mdui-card class="settings-entry">
+							<p class="setting-name">Test setting</p>
+							<mdui-switch></mdui-switch>
+						</mdui-card>
+						<mdui-card class="settings-entry">
+							<p class="setting-name">Test setting</p>
+							<mdui-switch></mdui-switch>
+						</mdui-card>
+					</div>
+				</mdui-layout-main>
+			</mdui-layout-main>
+
+			<!--main navbar-->
+			<mdui-navigation-bar id="main-navbar" bottom>
+				<mdui-navigation-bar-item value="home">
+					<mdui-icon slot="icon" name="home"></mdui-icon>
+					Home
+				</mdui-navigation-bar-item>
+
+				<mdui-navigation-bar-item value="search">
+					<mdui-icon slot="icon" name="search"></mdui-icon>
+					Search
+				</mdui-navigation-bar-item>
+
+				<mdui-navigation-bar-item value="settings">
+					<mdui-icon slot="icon" name="settings"></mdui-icon>
+					Settings
+				</mdui-navigation-bar-item>
+			</mdui-navigation-bar>
+		</mdui-layout-main>
+
+		<!--reader page-->
+		<mdui-layout-main class="page" id="reader" nopad> </mdui-layout-main>
+	</body>
+</html>
