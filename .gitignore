@@ -33,3 +33,5 @@ src-tauri/gen/
 !.dev.vars.example
 .env*
 !.env.example
+
+public/extensions/

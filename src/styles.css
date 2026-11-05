@@ -34,7 +34,7 @@ body {
 		Helvetica,
 		Arial,
 		sans-serif !important;
-	background-color: rgb(var(--mdui-color-background-dark));
+	background-color: rgb(var(--mdui-color-background-dark)) !important;
 }
 
 .hidden,
