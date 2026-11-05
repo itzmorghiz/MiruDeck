@@ -33,5 +33,20 @@
 			"icons/icon.icns",
 			"icons/icon.ico"
 		]
+	},
+	"plugins": {
+		"deep-link": {
+			"mobile": [
+				{
+					"scheme": ["https"],
+					"host": "yourwebsite.com",
+					"pathPrefix": ["/reader-page", "/open/"],
+					"appLink": true
+				}
+			],
+			"desktop": {
+				"schemes": ["mirudeck"]
+			}
+		}
 	}
 }

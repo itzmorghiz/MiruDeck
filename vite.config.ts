@@ -4,12 +4,16 @@ import fs from "node:fs";
 import path from "node:path";
 import RemoteAssets from "vite-plugin-remote-assets";
 import { buildAllExtensions } from "./scripts/build-extensions.ts";
+import { viteSingleFile } from "vite-plugin-singlefile";
+
+import { cloudflare } from "@cloudflare/vite-plugin";
 
 const host = process.env.TAURI_DEV_HOST;
 
 export default defineConfig(() => ({
 	plugins: [
 		RemoteAssets(),
+		viteSingleFile(),
 		{
 			name: "vite-plugin-mdext-watcher",
 			async configureServer(server) {
@@ -62,6 +66,7 @@ export default defineConfig(() => ({
 				}
 			},
 		},
+		cloudflare(),
 	],
 	clearScreen: false,
 	base: "./",
@@ -83,5 +88,6 @@ export default defineConfig(() => ({
 	build: {
 		chunkSizeWarningLimit: 2000,
 		emptyOutDir: true,
+		assetsInlineLimit: 100000,
 	},
 }));
