@@ -4,6 +4,7 @@ import { ExtensionManager, ExtensionPackage } from "../ext/manager";
 import { initTabFromURL, setActiveTab } from "../utils/tabs";
 import { isTauri } from "@tauri-apps/api/core";
 import { setupDeepLinking } from "../utils/deepLink";
+import { getPublicPath } from "../utils/io";
 
 declare global {
 	let ExtManager: ExtensionManager;
@@ -25,7 +26,7 @@ if (isTauri()) {
 
 //setActiveTab("reader");
 
-const exts: string[] = ["/extensions/mangaworld.mdext"];
+const exts: string[] = [getPublicPath("extensions/mangaworld.mdext")];
 
 exts.forEach(async (path) => {
 	const res = await fetch(path);

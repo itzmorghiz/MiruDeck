@@ -1,3 +1,4 @@
+/// <reference types="vite/client" />
 import JSZip from "jszip";
 
 export async function extractCodeFromMdext(fileOrBlob: Blob): Promise<string> {
@@ -28,4 +29,20 @@ export async function extractCodeFromMdext(fileOrBlob: Blob): Promise<string> {
 	// 3. Read the contents of index.js as text
 	const codeString = await indexFile.async("text");
 	return codeString;
+}
+
+export function getPublicPath(path: string): string {
+	const cleanPath = path.startsWith("/") ? path.slice(1) : path;
+	const base = import.meta.env.BASE_URL;
+
+	if (base === "./") {
+		return cleanPath;
+	}
+
+	if (base === "/") {
+		return `/${cleanPath}`;
+	}
+
+	const normalizedBase = base.endsWith("/") ? base : `${base}/`;
+	return `${normalizedBase}${cleanPath}`;
 }
