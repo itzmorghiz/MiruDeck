@@ -15,7 +15,7 @@
 	text-rendering: optimizeLegibility;
 	font-smooth: always;
 	user-select: none;
-	background-color: rgb(var(--mdui-color-background-dark)) !important;
+	--native-dark-bg-color: rgb(var(--mdui-color-background-dark)) !important;
 }
 
 html,
@@ -35,7 +35,6 @@ body {
 		Helvetica,
 		Arial,
 		sans-serif !important;
-	background-color: rgb(var(--mdui-color-background-dark)) !important;
 }
 
 .hidden,
