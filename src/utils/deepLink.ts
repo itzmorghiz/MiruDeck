@@ -16,7 +16,6 @@ export async function setupDeepLinking() {
 			}
 
 			if (targetId) {
-				console.log(`[DeepLink] Opening tab: ${targetId}`);
 				setActiveTab(targetId);
 			}
 		} catch (e) {

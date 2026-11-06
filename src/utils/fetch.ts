@@ -4,8 +4,6 @@ import { fetch as tauriFetch } from "@tauri-apps/plugin-http";
 export function safeFetch(
 	...args: Parameters<typeof window.fetch>
 ): Promise<Response> {
-	console.log("[FETCH]", args[0]);
-
 	if (isTauri()) {
 		return tauriFetch(...args);
 	}
@@ -47,14 +45,6 @@ export function browserFetch(
 		Accept:
 			"text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8",
 		"Accept-Language": "en-US,en;q=0.9",
-		"Sec-Ch-Ua":
-			'"Not)A;Brand";v="99", "Google Chrome";v="127", "Chromium";v="127"',
-		"Sec-Ch-Ua-Mobile": "?0",
-		"Sec-Ch-Ua-Platform": '"Windows"',
-		"Sec-Fetch-Dest": "document",
-		"Sec-Fetch-Mode": "navigate",
-		"Sec-Fetch-Site": "none",
-		"Sec-Fetch-User": "?1",
 		"Upgrade-Insecure-Requests": "1",
 	};
 	const headers = new Headers(init?.headers || {});

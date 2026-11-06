@@ -1,10 +1,10 @@
 import { CircularProgress } from "mdui";
 import { MangaSearchEntry } from "../ext/types";
 import { resultsDiv } from "./init";
+import { setActiveTab } from "../utils/tabs";
+import { stringifyQuery } from "ufo";
 
 export function search(query: string) {
-	console.log("[SEARCH] " + query);
-
 	let sepNeed = false;
 
 	Object.keys(Extensions).forEach((id) => {
@@ -31,16 +31,12 @@ export function search(query: string) {
 	Object.keys(Extensions).forEach(async (id) => {
 		const ext = Extensions[id];
 
-		const host = ext.manifest.host;
-
 		const entries = await ExtManager.runExtension<MangaSearchEntry[]>(
 			ext.code,
 			"search",
 			[query],
-			host,
+			ext.manifest.host,
 		);
-
-		console.log(entries);
 
 		const sourceTopDiv = resultsDiv.querySelector(
 			`.source-container[data-source="${ext.manifest.id}"]`,
@@ -50,8 +46,11 @@ export function search(query: string) {
 		) as HTMLDivElement;
 
 		entries.forEach((entry) => {
+			const slur = entry.slur ? ` data-slur="${entry.slur}"` : "";
+			const id = entry.id ? ` data-id="${entry.id}"` : "";
+
 			sourceDiv.innerHTML += /*html*/ `
-						<mdui-card clickable class="result-entry">
+						<mdui-card clickable class="result-entry"${slur + id}>
 							<img class="cover" src="${entry.cover}" />
 							<div class="info">
 								<h5 class="title">${entry.title}</h5>
@@ -63,6 +62,26 @@ export function search(query: string) {
 				".source-loader",
 			) as CircularProgress;
 			loader.setAttribute("hidden", "true");
+		});
+
+		const resultCards = [...sourceDiv.querySelectorAll(".result-entry")];
+
+		resultCards.forEach((card) => {
+			card.addEventListener("click", () => {
+				const queries: Record<string, string | undefined> = {};
+
+				const id = card.getAttribute("data-id");
+				const slur = card.getAttribute("data-slur");
+
+				if (id) queries["id"] = id;
+				if (slur) queries["slur"] = slur;
+
+				queries["source"] = ext.manifest.id;
+
+				let qString = stringifyQuery(queries);
+
+				setActiveTab("details", true, qString);
+			});
 		});
 	});
 }

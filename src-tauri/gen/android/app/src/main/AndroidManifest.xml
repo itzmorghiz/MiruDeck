@@ -30,11 +30,10 @@
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
                 <data android:scheme="https" />
-                <data android:host="yourwebsite.com" />
+                <data android:host="mirudeck.itzmorghiz.workers.dev" />
                 
                 
-                <data android:pathPrefix="/reader-page" />
-                <data android:pathPrefix="/open/" />
+                <data android:pathPrefix="/" />
                 
             </intent-filter>
             <!-- DEEP LINK PLUGIN. AUTO-GENERATED. DO NOT REMOVE. -->

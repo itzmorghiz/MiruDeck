@@ -1,10 +1,14 @@
 import { NavigationBar, TextField } from "mdui";
 import { search } from "./search";
-import { ExtensionManager, ExtensionPackage } from "../ext/manager";
+import { ExtensionManager } from "../ext/manager";
 import { initTabFromURL, setActiveTab } from "../utils/tabs";
 import { isTauri } from "@tauri-apps/api/core";
 import { setupDeepLinking } from "../utils/deepLink";
 import { getPublicPath } from "../utils/io";
+import { displayDetails } from "./details";
+import { ExtensionPackage } from "../ext/types";
+import { listenForCollapse } from "../utils/elements";
+import { displayChapterReader } from "./reader";
 
 declare global {
 	let ExtManager: ExtensionManager;
@@ -15,16 +19,6 @@ declare global {
 (globalThis as any).ActiveTab = {};
 (globalThis as any).ExtManager = new ExtensionManager();
 (globalThis as any).Extensions = {};
-
-//setActiveTab("search", false);
-
-initTabFromURL();
-
-if (isTauri()) {
-	setupDeepLinking();
-}
-
-//setActiveTab("reader");
 
 const exts: string[] = [getPublicPath("extensions/mangaworld.mdext")];
 
@@ -53,8 +47,34 @@ searchForm.addEventListener("submit", async (event) => {
 	search(query);
 });
 
+document.addEventListener("DOMContentLoaded", () => {
+	listenForCollapse(document);
+});
+
+const backBtns = [...document.getElementsByClassName("back-button")];
+backBtns.forEach((btn) => {
+	btn.addEventListener("click", () => {
+		history.back();
+	});
+});
+
 const navBar = document.getElementById("main-navbar") as NavigationBar;
 navBar.addEventListener("change", () => {
-	console.log("[NAVBAR] " + navBar.value);
 	setActiveTab(navBar.value || "");
 });
+
+const detailsPage = document.getElementById("details")!;
+detailsPage.addEventListener("tabactivate", () => {
+	displayDetails();
+});
+
+const readerPage = document.getElementById("reader")!;
+readerPage.addEventListener("tabactivate", () => {
+	displayChapterReader();
+});
+
+initTabFromURL();
+
+if (isTauri()) {
+	setupDeepLinking();
+}

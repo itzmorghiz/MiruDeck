@@ -3,12 +3,19 @@
 	<head>
 		<meta charset="UTF-8" />
 		<link href="/node_modules/mdui/mdui.css" rel="stylesheet" />
+		<link href="/node_modules/swiper/swiper-bundle.min.css" rel="stylesheet" />
 		<link rel="stylesheet" href="/src/styles.css" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>MiruDeck</title>
 		<script type="module" src="/src/main.ts" defer></script>
 	</head>
 	<body id="body">
+		<mdui-snackbar
+			close-on-outside-click
+			closeable
+			id="snackbar"
+			placement="top"
+		></mdui-snackbar>
 		<!--main page-->
 		<mdui-layout-main class="page" id="main" nopad>
 			<!--home page-->
@@ -198,6 +205,88 @@
 		</mdui-layout-main>
 
 		<!--reader page-->
-		<mdui-layout-main class="page" id="reader" nopad> </mdui-layout-main>
+		<mdui-layout-main class="page" id="reader" nopad>
+			<mdui-top-app-bar
+				scroll-behavior="hide"
+				scroll-target="#details-content"
+				top
+				small
+				variant="medium"
+			>
+				<mdui-button-icon icon="arrow_back" class="back-button">
+				</mdui-button-icon>
+
+				<mdui-top-app-bar-title id="meta-bar-title" gsans-rnd>
+					<span slot="label-large"></span>
+				</mdui-top-app-bar-title>
+			</mdui-top-app-bar>
+
+			<mdui-layout-main id="reader-content" nopad scroll>
+				<div class="swiper" id="reader-swiper">
+					<div class="swiper-wrapper" id="reader-swiper-wrapper"></div>
+				</div>
+			</mdui-layout-main>
+		</mdui-layout-main>
+
+		<!--details page-->
+		<mdui-layout-main class="page" id="details" nopad>
+			<mdui-top-app-bar
+				scroll-behavior="shrink elevate"
+				scroll-target="#details-content"
+				top
+				small
+				variant="medium"
+			>
+				<mdui-button-icon
+					icon="arrow_back"
+					class="back-button"
+				></mdui-button-icon>
+
+				<mdui-top-app-bar-title id="meta-bar-title" gsans-rnd>
+					<span slot="label-large"></span>
+				</mdui-top-app-bar-title>
+			</mdui-top-app-bar>
+
+			<mdui-layout-main id="details-content" scroll>
+				<div id="media-meta">
+					<div id="media-cover-wrapper" class="loading">
+						<img src="https://picsum.photos/200/300" id="media-cover" />
+					</div>
+					<div id="media-meta-text" class="loading">
+						<span id="meta-title" gsans-rnd>Manga Title - Test</span>
+						<span id="meta-authors">Manga Authors</span>
+						<mdui-divider></mdui-divider>
+						<span id="meta-status">Unknown</span>
+						<span id="meta-source">Source</span>
+					</div>
+				</div>
+				<mdui-button
+					id="start-continue-button"
+					class="loading"
+					full-width
+				></mdui-button>
+				<mdui-collapse value="description">
+					<mdui-collapse-item value="description" open>
+						<mdui-list-item slot="header" class="loading">
+							<mdui-icon name="article" slot="icon"></mdui-icon
+							><span id="meta-description-title">Description</span
+							><mdui-icon
+								name="arrow_right"
+								slot="end-icon"
+								class="collapse-arrow"
+							></mdui-icon>
+						</mdui-list-item>
+						<div id="meta-description"></div>
+					</mdui-collapse-item>
+				</mdui-collapse>
+
+				<mdui-divider></mdui-divider>
+
+				<mdui-collapse id="volumes-list" accordion class="loading">
+				</mdui-collapse>
+
+				<mdui-list id="chapters-list"></mdui-list>
+			</mdui-layout-main>
+		</mdui-layout-main>
 	</body>
 </html>

@@ -3,5 +3,6 @@
 	"name": "Mangaworld",
 	"version": "1.0.0",
 	"author": "itzmorghiz",
-	"host": "https://www.mangaworld.mx/"
+	"host": "https://www.mangaworld.mx/",
+	"region": "🇮🇹"
 }
